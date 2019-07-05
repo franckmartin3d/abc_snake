@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>ABC SNAKE</title>
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <head>
+        <h1>ABC SNAKE GAME</h1>
+    </head>
+    <main>
+        <div class="hud">
+            <h2># of letters:</h2>
+            <h2>Current Word:</h2>
+            <h2>Next Letter:</h2>
+            <h2>Next Word:</h2>
+        </div>
+
+    </main>
+
+</body>
+
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+var canvas;
+var canvasContext;
+
+window.onload = function() {
+	console.log("Hello world!");
+	canvas = document.getElementById('gameCanvas');
+	canvasContext = canvas.getContext('2d');
+	canvasContext.fillStyle = 'black';
+	canvasContext.fillRect(0,0,canvas.width,canvas.height);
+	canvasContext.fillStyle = 'white';
+	canvasContext.fillRect(225,210,200,200);
+	canvasContext.fillStyle = 'red';
+	canvasContext.fillRect(canvas.width/2,200,50,25);
+}
+
+</script>
+<footer></footer>
+</html>
