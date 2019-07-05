@@ -1,0 +1,28 @@
+
+
+body{
+   background-color:#73D2DE;
+   font-family: 'Bangers', cursive;
+   margin: 0;
+}
+h1{
+   
+   color:#218380;
+   font-size: 500%;
+   text-align: center;
+}
+.hud-block{
+   color:#D81159;
+   letter-spacing: 0.2em;
+   float: left;
+   width: 25%;
+   border: 4px ;
+   padding:10px;
+   box-sizing:border-box;
+   
+}
+canvas{
+   border:2px solid black;
+   border-radius: 15px;
+   background-color: white;
+}

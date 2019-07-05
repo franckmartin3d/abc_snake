@@ -1,45 +1,35 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
     <title>ABC SNAKE</title>
-    <link rel="stylesheet" href="theme.css">
 </head>
 <body>
-    <head>
-        <h1>ABC SNAKE GAME</h1>
-    </head>
-    <main>
-        <div class="hud">
-            <h2># of letters:</h2>
-            <h2>Current Word:</h2>
-            <h2>Next Letter:</h2>
-            <h2>Next Word:</h2>
-        </div>
+    <h1>ABC SNAKE</h1>
+    <div class="hud-block">
+            <h2>Numbers of letters:</h2>
+            <canvas id="cnumber" width="220" height="50"></canvas>
+    </div>
 
-    </main>
+    <div class="hud-block">
+            <h2>Current Word:</h2>
+            <canvas id="Cword" width="300" height="50"></canvas>
+    </div>
+
+    <div class="hud-block">
+            <h2>Next Letter:</h2>
+            <canvas id="Cnext" width="200" height="50"></canvas>
+    </div>
+    <div class="hud-block">
+            <h2>Word list:</h2>
+            <canvas id="Cnext" width="200" height="200"></canvas>
+    </div>
+    <canvas id="Cgame" width="900" height="500"></canvas>
+<script src="game.js"></script>
 
 </body>
-
-
-<canvas id="gameCanvas" width="800" height="600"></canvas>
-
-<script>
-var canvas;
-var canvasContext;
-
-window.onload = function() {
-	console.log("Hello world!");
-	canvas = document.getElementById('gameCanvas');
-	canvasContext = canvas.getContext('2d');
-	canvasContext.fillStyle = 'black';
-	canvasContext.fillRect(0,0,canvas.width,canvas.height);
-	canvasContext.fillStyle = 'white';
-	canvasContext.fillRect(225,210,200,200);
-	canvasContext.fillStyle = 'red';
-	canvasContext.fillRect(canvas.width/2,200,50,25);
-}
-
-</script>
-<footer></footer>
 </html>
