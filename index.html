@@ -10,26 +10,35 @@
 </head>
 <body>
     <h1>ABC SNAKE</h1>
-    <div class="hud-block">
-            <h2>Numbers of letters:</h2>
-            <canvas id="cnumber" width="220" height="50"></canvas>
-    </div>
+    <div class="container-hud">
+                <div class="hud-block">
+                        <h2>Numbers of letters:</h2>
+                        <canvas id="cnumber" width="250" height="50"></canvas>
+                </div>
 
-    <div class="hud-block">
-            <h2>Current Word:</h2>
-            <canvas id="Cword" width="300" height="50"></canvas>
-    </div>
+                <div class="hud-blockM">
+                        <h2>Current Word:</h2>
+                        <canvas id="Cword" width="500" height="50"></canvas>
+                </div>
 
-    <div class="hud-block">
-            <h2>Next Letter:</h2>
-            <canvas id="Cnext" width="200" height="50"></canvas>
+                <div class="hud-block">
+                        <h2>Next Letter:</h2>
+                        <canvas id="Cnext" width="75" height="50"></canvas>
+                </div>
     </div>
-    <div class="hud-block">
-            <h2>Word list:</h2>
-            <canvas id="Cnext" width="200" height="200"></canvas>
-    </div>
-    <canvas id="Cgame" width="900" height="500"></canvas>
+    <div class="containergame">
+                <div class="hud-block3">
+                        <h2>Word list:</h2>
+                        <canvas id="Cnext" width="250" height="200"></canvas>
+                </div>
+                        <div class="hud-block3">
+                        <canvas id="Cgame" width="900" height="600"></canvas>
+                </div>
+        </div>  
 <script src="game.js"></script>
 
 </body>
+<footer>
+        <p>Francois Martin</p>
+</footer>
 </html>
