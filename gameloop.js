@@ -5,7 +5,8 @@ var ctx = canvas.getContext('2d');
 
 //setup variable
 let grid = 30; // not sure where to put it
-let player = new Snake(canvas.width/2, canvas.height/2, 1, 0, grid, grid, 15)
+let player = new Snake(canvas.width/2, canvas.height/2, 1, 0, grid, grid, 15);
+let manage = new Applemanager();
 
 
 
@@ -35,6 +36,8 @@ function render(){
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.draw(ctx);
+    manage.spawnApple(ctx);
+    
 
 }
 
