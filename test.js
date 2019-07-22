@@ -5,8 +5,7 @@ function snakeArray(){
             state: 'head',
             xpos: 100,
             ypos: 150
-        }
-        
+        }  
         
         ];
         
@@ -31,24 +30,24 @@ function snakeArray(){
         
         // body.shift();
         console.log(body);
-        
-        
-        
-        
-        
-            
+             
 }
 
+function word(){
+    let wordlist = ['abcdefg', 'mila','maman',"nana"];
 
-var word = 'ABC'
+    let randomitem = wordlist[Math.floor(Math.random() * wordlist.length)]
+    console.log('this random item:' + randomitem);
+    return randomitem
+}
 
 
 
 function char(word){
 
     // chop word
-     
-    let chop = word.split('');
+    word = word.toUpperCase();
+    let split = word.split('');
     console.log("array of word:" + word[0]);
 
     // list for path
@@ -162,33 +161,30 @@ function char(word){
 
     ];
 
-    //loop to find right path
-    // debugger;
-    // for (i = 0 ; word.lenght; i++){
-    //     if (word[i] == list[i].char);
-    //         let result = list.path[i];
-    //         console.log('result' + result);
-    //         return result;
+   
 
-    //     }
-    let i = 0;
-    while (i < word.length) {
-        let newArray = [];
-        chop.forEach(element => {
-            if (element == list[i].char){
-                newArray.push(list[i].path)
-                
+    let patharr = [];
+    split.forEach(element => {
+        // console.log(element);
+        
+        list.forEach(letter =>{
+            if (element == letter.char){
+                // console.log(letter.path);
+                patharr.push(letter.path);
             }
+            // console.log(letter.path);
+           
         });
-        i++;
-        return newArray;
 
-    }
-    console.log(newArray);
+    });
+   console.log(patharr);
 
 
 }
-char('abc');
+let papa = word();
+
+console.log(typeof papa);
+char(papa);
 
 
 
