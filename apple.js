@@ -14,10 +14,15 @@ class Apple{
     update(player){
         let distance  = Math.hypot(player.xPos-this.xPos, player.yPos-this.yPos);
 
-        // console.log(distance);
-        if (distance < 30){
+        // Update 
+        if (distance < grid){
             this.xPos = Math.floor(Math.random()* canvas.width);
             this.yPos = Math.floor(Math.random()* canvas.height);
+
+            console.log(' Colission thick');
+            // this.children ++;
+            player.children += 1;
+            console.log('children : ' + player.children);
         }
     }
 }

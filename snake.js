@@ -92,23 +92,12 @@ class Snake{
         }
     });
 }
-    eat(apple){
-        // when snakes eats apple and grows.
-        let distance  = Math.hypot((apple.xPos - this.bodyX[0]) - (grid*2), (apple.yPos - this.bodyY[0])) - (grid*2);
-        if (distance < grid*2){
-            console.log('apple was eaten');
-            // this.children ++;
-            this.children += 1;
-            return true;
-            
-        }
-         console.log(this.children);
-    }
+
     spawn(){
         let head = this.bodyX
     }
 
-    collision(){
+    getdistance(){
         // When snake collides with itself.
     }
 
