@@ -181,4 +181,21 @@ class Alphabet {
         this.alphastart = true;
 
     }
+    drawActiveWord(){
+        // draw activeword on canvas
+        
+
+        ctxActiveWord.font = "32px Georgia";
+        ctxActiveWord.fillText(this.activeWord, canvasActiveWord.width/2, canvasActiveWord.height/2);
+
+    }
+
+    drawNumberLetter(){
+        // draw activeword on canvas
+        
+
+        ctxNextNumber.font = "32px Georgia";
+        ctxNextNumber.fillText(this.Collectedletters, canvasNextNumber.width/2, canvasNextNumber.height/2);
+
+    }
 }

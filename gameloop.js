@@ -4,6 +4,18 @@ var canvas = document.getElementById('game-window');
 var ctx = canvas.getContext('2d');
 var fps = 60;
 
+var canvasActiveWord = document.getElementById('currentWord');
+var ctxActiveWord = canvasActiveWord.getContext('2d');
+
+var canvasNextNumber = document.getElementById('number');
+var ctxNextNumber = canvasNextNumber.getContext('2d');
+
+
+
+
+
+
+
 //setup variable
 let grid = 60; // not sure where to put it
 let player = new Snake(canvas.width/2, canvas.height/2, 1, 0, grid, grid, 15,0);
@@ -52,6 +64,8 @@ function render(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     player.draw(ctx);  
     apple.draw(ctx,alphabet);
+    alphabet.drawActiveWord(ctxActiveWord);
+    alphabet.drawNumberLetter(ctxNextNumber);
 }
 
 // Game loop
