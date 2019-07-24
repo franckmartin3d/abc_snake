@@ -1,7 +1,7 @@
 class Alphabet {
     constructor(){
 
-        this.wordlist = ['abcdefg', 'mila', 'maman', "nana"];
+        this.wordlist = ['Abc', 'Mila', 'Apple', "House"];
         this.activeWord = '';
         this.iconPathArray = [];
         this.activeIcon = '';
@@ -15,9 +15,9 @@ class Alphabet {
     setActiveWord() {
 
         //set a random word as active
-        this.activeWord = this.wordlist[Math.floor(Math.random() * this.wordlist.length)];
-         console.log('activeword:' + this.activeWord);
-
+        // this.activeWord = this.wordlist[Math.floor(Math.random() * this.wordlist.length)];
+        //  console.log('activeword:' + this.activeWord);
+        this.activeWord = this.wordlist[this.completedWord];
     }
 
     setIconPathArray() {
@@ -164,27 +164,40 @@ class Alphabet {
             this.setActiveWord();
             this.activeWordChange += 1;
             console.log(this.activeWordChange);
+            console.log('active word: ' + this.activeWord);
             this.setIconPathArray();
             this.setActiveIcon();
+            this.alphastart = true;
           }
         else if(this.Collectedletters >= this.iconPathArray.length ){
             this.completedWord +=1;
-            this.setActiveIcon();
             this.alphastart = false;
-            this.Collectedletters = 0;
+            this.Collectedletters = 0; 
+
+            this.setActiveWord();
+            this.activeWordChange += 1;
+            
+            console.log(this.activeWordChange);
+            console.log('active word update' + this.activeWord);
+
+            this.setIconPathArray();
+            this.setActiveIcon();
+
 
         }
         else{
+            // this.setIconPathArray();
             this.setActiveIcon();
 
+
         }
-        this.alphastart = true;
+        // console.log(this.activeWord);
+
 
     }
     drawActiveWord(){
         // draw activeword on canvas
-        
-
+        ctxActiveWord.clearRect(0, 0, canvas.width, canvas.height);
         ctxActiveWord.font = "32px Georgia";
         ctxActiveWord.fillText(this.activeWord, canvasActiveWord.width/2, canvasActiveWord.height/2);
 
@@ -193,9 +206,33 @@ class Alphabet {
     drawNumberLetter(){
         // draw activeword on canvas
         
-
+        ctxNextNumber.clearRect(0, 0, canvas.width, canvas.height);
         ctxNextNumber.font = "32px Georgia";
         ctxNextNumber.fillText(this.Collectedletters, canvasNextNumber.width/2, canvasNextNumber.height/2);
 
+    }
+    drawWordList(){
+ ;
+        var fontSize = 20;
+
+        ctxWordList.font = fontSize + "px Arial";
+        ctxWordList.fillStyle = "#000";
+        ctxWordList.textAlign = "left";
+
+        var fontSize = 40;
+        var x = 10;
+        var y = 30;
+
+        // wordwrapp array
+        for (var i = 0; i < this.wordlist.length; i++) {
+            ctxWordList.fillText(this.wordlist[i], x, y);
+           y += fontSize;
+        }
+
+    }
+    drawNextLetter(){
+        ctxNextLetter.clearRect(0, 0, canvas.width, canvas.height);
+        ctxNextLetter.font = "12px Georgia";
+        ctxNextLetter.fillText(this.iconPathArray[this.Collectedletters], 0, canvasNextLetter.height/2);
     }
 }

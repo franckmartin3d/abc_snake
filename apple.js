@@ -19,8 +19,8 @@ class Apple{
 
         // Update with collision
         if (distance < grid){
-            this.xPos = Math.floor(Math.random()* canvas.width);
-            this.yPos = Math.floor(Math.random()* canvas.height);
+            this.xPos = this.getRandomInt((0 + grid), (canvas.width - grid));
+            this.yPos = this.getRandomInt((0 + grid), (canvas.height- grid));
 
         // trigger a snake child
             console.log(' Colission thick');
@@ -34,5 +34,11 @@ class Apple{
             alphabet.Collectedletters +=1;
             console.log('collected letters' + alphabet.Collectedletters);
         }
+        
     }
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min ; //The maximum is exclusive and the minimum is inclusive
+      }
 }

@@ -10,11 +10,11 @@ var ctxActiveWord = canvasActiveWord.getContext('2d');
 var canvasNextNumber = document.getElementById('number');
 var ctxNextNumber = canvasNextNumber.getContext('2d');
 
+var canvasWordList = document.getElementById('wordList');
+var ctxWordList = canvasWordList.getContext('2d');
 
-
-
-
-
+var canvasNextLetter = document.getElementById('next');
+var ctxNextLetter = canvasNextLetter.getContext('2d');
 
 //setup variable
 let grid = 60; // not sure where to put it
@@ -66,6 +66,8 @@ function render(){
     apple.draw(ctx,alphabet);
     alphabet.drawActiveWord(ctxActiveWord);
     alphabet.drawNumberLetter(ctxNextNumber);
+    alphabet.drawWordList(ctxWordList);
+    alphabet.drawNextLetter(ctxNextLetter);
 }
 
 // Game loop
