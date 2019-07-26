@@ -21,14 +21,15 @@ let grid = 60; // not sure where to put it
 let player = new Snake(canvas.width/2, canvas.height/2, 1, 0, grid, grid, 15,0);
 let apple = new Apple(0, false);
 let alphabet = new Alphabet(['apple', 'bubble'],'apple',[1],'test' );
+let tail = new Tail(player,alphabet);
 
 //New Gameloop
-function gameloop(player, apple ,alphabet) {
+function gameloop(player, apple ,alphabet,tail) {
     setTimeout(function() {
         input();
-        updatePlayer();
         updateApple();
         updateAlphabet();
+        updatePlayer();
         render()
 
       requestAnimationFrame(gameloop);
@@ -46,16 +47,20 @@ function updatePlayer(){
     // Update function in this ie: move points player.
 
     player.movement();
+    tail.update(player.xPos, player.yPos, alphabet.activeIcon);
+   
+    
    
     
 }
 function updateApple(){
     // all apple class update goes here
-    apple.update(player,alphabet);
+    apple.update(player,alphabet,tail);
 }
 function updateAlphabet(){
     // alphabet class update goes here
     alphabet.update(player.children,apple);
+    
     
 
 }
@@ -68,6 +73,7 @@ function render(){
     alphabet.drawNumberLetter(ctxNextNumber);
     alphabet.drawWordList(ctxWordList);
     alphabet.drawNextLetter(ctxNextLetter);
+    tail.drawTail();
 }
 
 // Game loop

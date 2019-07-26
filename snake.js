@@ -71,21 +71,21 @@ class Snake{
                     // up
             switch (event.keyCode) {
                 // move up
-                case 38:
+                case 87:
                     this.direction(0, -1);
                 break;
 
                 // move down
-                case 40:
+                case 83:
                     this.direction(0, 1);
                 break;
 
                 //lefT
-                case 37:
+                case 65:
                     this.direction(-1, 0);
                 break;
                 //right
-                case 39:
+                case 68:
                     this.direction(1, 0);
                 break;
 

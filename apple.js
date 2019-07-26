@@ -14,7 +14,7 @@ class Apple{
         // debugger;
         ctx.drawImage(apple_image, this.xPos, this.yPos,this.width,this.height);
     }
-    update(player, alphabet){
+    update(player, alphabet,tail){
         let distance  = Math.hypot(player.xPos-this.xPos, player.yPos-this.yPos);
 
         // Update with collision
@@ -26,6 +26,9 @@ class Apple{
             console.log(' Colission thick');
             player.children += 1;
             console.log('children : ' + player.children);
+            tail.grow(alphabet);
+            tail.setTail();
+
 
         // apple counter
             this.appleCounter +=1;
