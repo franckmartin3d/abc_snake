@@ -159,12 +159,11 @@ class Alphabet {
     }
     update(){
         //run all required function in gameloop
-        console.log(this.alphastart);
+        // console.log(this.alphastart);
         if (this.alphastart == false){
             this.setActiveWord();
             this.activeWordChange += 1;
-            console.log(this.activeWordChange);
-            console.log('active word: ' + this.activeWord);
+            // w
             this.setIconPathArray();
             this.setActiveIcon();
             this.alphastart = true;

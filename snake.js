@@ -1,12 +1,15 @@
 // class of the snake
-class Snake{
-    constructor(xPos, yPos , xVelo, yVelo , width, height ,speed, total){
+class Snake {
+    constructor(xPos, yPos, xVelo, yVelo, width, height, speed, alphabet) {
         //Tail
-        this.bodyX = [];
-        this.bodyY = [];
-        this.bodyX[0] = this.xPos;
-        this.bodyY[0] = this.yPos;
+        this.tailArray = [{
+            path: alphabet.activeIcon,
+            x: this.xPos,
+            y: this.yPos
+        }, ];
+
         this.children = 0;
+        this.head;
 
         //original
         this.xPos = xPos;
@@ -18,87 +21,117 @@ class Snake{
         this.speed = speed;
 
     }
-    draw(ctx){
-        // draw the snake.
+    define(alphabet) {
+        // update tailarray[0]
+        //set head
+        this.head = {
+            path: alphabet.activeIcon,
+            x: this.xPos,
+            y: this.yPos
+        }
+        this.tailArray[0] = this.head;
+    }
 
+    draw(ctx) {
         // image
-        // need to change letter so get pass letter from letter chooser
-        let a_image = new Image ();
-        a_image.src = '../char/E_char.png';
-        ctx.drawImage(a_image, this.bodyX[0], this.bodyY[0],this.width,this.height);
-
+        // need to change letter so get pass letter from letter choosers
+        for (let i = 0; i < this.tailArray.length; i++) {
+            const element = this.tailArray[i];
+            let a_image = new Image();
+            a_image.src = '../char/S_char.png';
+            ctx.drawImage(a_image, this.tailArray[i].x, this.tailArray[i].y, this.width, this.height);
+        }
         //draw a children
 
-       
     }
-    position(x,y){
+    position(x, y) {
         this.xPos = x
         this.yPos = y
     }
-       
 
-    direction(x, y){
+
+    direction(x, y) {
         //helper methos that set the direction of the
         this.xVelo = x;
         this.yVelo = y;
     }
-    movement(){
+    movement() {
 
         this.xPos += (this.xVelo * this.width) / this.speed;
-        this.yPos += (this.yVelo * this.height) /  this.speed;
+        this.yPos += (this.yVelo * this.height) / this.speed;
 
         // hitting the side in x
-        if (this.xPos > canvas.width){
-            this.xPos  -= canvas.width; 
-        }else if( this.xPos < 0 ){
-            this.xPos += canvas.width; 
+        if (this.xPos > canvas.width) {
+            this.xPos -= canvas.width;
+        } else if (this.xPos < 0) {
+            this.xPos += canvas.width;
         }
 
         //hitting the side in y
-        if (this.yPos > canvas.height){
-            this.yPos  -= canvas.height; 
-        }else if( this.yPos < 0 ){
-            this.yPos += canvas.height; 
+        if (this.yPos > canvas.height) {w
+            this.yPos -= canvas.height;
+        } else if (this.yPos < 0) {
+            this.yPos += canvas.height;
         }
-        this.bodyX[0] = this.xPos
-        this.bodyY[0] = this.yPos
-        // console.log(this.bodyX[0]);
+
+        // update all instance
+        // for (let i = 0; i < this.tailArray.length; i++) {
+            this.tailArray[0].x = this.xPos;
+            this.tailArray[0].y = this.yPos;
+
+        // }
+
+        // console.log(this.bodyX[0]);s
     }
 
-    input(){
+
+    //grow
+    grow(ctx, alphabet) {
+
+
+        //copy head
+        let headCopy = this.tailArray[0];
+        this.tailArray.shift;
+        //add the 1copied head to the array
+        this.tailArray.push(headCopy);
+        // debugger;
+        // result of 2 original heads
+
+        // for (let i = 0; i < this.tailArray.length; i++) {
+        //     console.log("tailarray: " + this.tailArray[i].path);
+        //     console.log("tailarray: " + this.tailArray[i].x);
+        //     console.log("tailarray: " + this.tailArray[i].y);
+
+
+        // }
+
+    }
+
+    input() {
         // get input and set direction using helper method direction
         document.addEventListener('keydown', event => {
-                    // up
+            // up
             switch (event.keyCode) {
                 // move up
                 case 87:
                     this.direction(0, -1);
-                break;
+                    break;
 
-                // move down
+                    // move down
                 case 83:
                     this.direction(0, 1);
-                break;
+                    break;
 
-                //lefT
+                    //lefT
                 case 65:
                     this.direction(-1, 0);
-                break;
-                //right
+                    break;
+                    //right
                 case 68:
                     this.direction(1, 0);
-                break;
+                    break;
 
-        }
-    });
-}
-
-    spawn(){
-        let head = this.bodyX
+            }
+        });
     }
-
-    getdistance(){
-        // When snake collides with itself.
-    }
-
 }

@@ -1,17 +1,17 @@
-class Tail{
-    constructor(player, alphabet){
+class Tail {
+    constructor(player, alphabet) {
         this.tailArray = [{
             path: alphabet.activeIcon,
             x: player.xPos,
             y: player.yPos
 
-        },];
+        }, ];
         this.head;
-        this.child = 0 ;   
+        this.child = 0;
 
     }
 
-    setHead(player, alphabet){
+    setHead(player, alphabet) {
         this.head = {
             path: alphabet.activeIcon,
             x: player.xPos,
@@ -21,8 +21,8 @@ class Tail{
 
 
     }
-    
-    test(){
+
+    test() {
         // testing passing the head position
         // console.log(this.head.x);
         // console.log(this.head.y);
@@ -36,45 +36,56 @@ class Tail{
     }
 
 
-    setTail(player){
+    setTail(player) {
         // update the tail array
         this.tailArray.shift()
         //Copy array 0 
-        let headCopy = this.tailArray[this.tailArray.length -1 ];
-        
+        let headCopy = this.tailArray[this.tailArray.length - 1];
+
         // add another element
         this.tailArray.push(headCopy)
 
         // shuffle array
     }
 
-    grow(alphabet){
+    grow(alphabet) {
 
-        let temp = {path: alphabet.activeIcon,
+        let temp = {
+            path: alphabet.activeIcon,
             x: 0,
-            y: 0};
+            y: 0
+        };
         this.child++;
         this.tailArray.push(temp);
     }
 
-    update(){
+    update() {
         this.setHead(player, alphabet);
-        this.test();
-    }
-    drawTail(ctx){
-        // console.log('tail lenght: ' + this.tailArray.length);
-        // console.log("tailarray" + this.tailArray);
+        
+   }
+    drawTail(ctx) {
+
+
+
         for (let i = 0; i < this.tailArray.length; i++) {
             let element = this.tailArray[i];
-            ctx.fillStyle = 'red';
-            ctx.fillRect(element.xPos,element.yPos,20,20);
-            console.log('draw image ' + this.tailArray[i].path)
+            ctx.fillStyle = 'black';
+            ctx.fillRect(this.tailArray[i].xPos,this.tailArray[i].yPos, 50, 50);
+
+
+
+
+        // console.log('tail lenght: ' + this.tailArray.length);
+        // console.log("tailarray" + this.tailArray);
+   
+        //     this.colorRect(0, 0, 10 , 10 ,'black');
+            // console.log('draw image ' + this.tailArray[i].path)
             // let element_image = new Image ();
-            // element_image.src = this.tailArray[i].path;
+            // element_image.src = this.tailArray[i].ewpath;
             // ctx.drawImage(element_image, this.tailArray[i].xPos, this.tailArray[i].yPos,30,30);
-            
+
         }
     }
 
-}
-
+   
+}s
