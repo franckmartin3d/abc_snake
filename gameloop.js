@@ -48,6 +48,7 @@ function updatePlayer(){
 
     player.movement();
     tail.update(player.xPos, player.yPos, alphabet.activeIcon);
+
    
     
    
@@ -55,7 +56,7 @@ function updatePlayer(){
 }
 function updateApple(){
     // all apple class update goes here
-    apple.update(player,alphabet,tail);
+    apple.update(player,alphabet,tail,ctx);
 }
 function updateAlphabet(){
     // alphabet class update goes here
@@ -73,7 +74,8 @@ function render(){
     alphabet.drawNumberLetter(ctxNextNumber);
     alphabet.drawWordList(ctxWordList);
     alphabet.drawNextLetter(ctxNextLetter);
-    tail.drawTail();
+    tail.drawTail(ctx);
+
 }
 
 // Game loop

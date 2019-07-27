@@ -14,7 +14,7 @@ class Apple{
         // debugger;
         ctx.drawImage(apple_image, this.xPos, this.yPos,this.width,this.height);
     }
-    update(player, alphabet,tail){
+    update(player, alphabet,tail,ctx){
         let distance  = Math.hypot(player.xPos-this.xPos, player.yPos-this.yPos);
 
         // Update with collision
@@ -28,6 +28,8 @@ class Apple{
             console.log('children : ' + player.children);
             tail.grow(alphabet);
             tail.setTail();
+            ctx.fillStyle = 'red';
+            ctx.fillRect(5,5,20,20);
 
 
         // apple counter

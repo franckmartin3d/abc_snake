@@ -61,14 +61,17 @@ class Tail{
         this.setHead(player, alphabet);
         this.test();
     }
-    drawTail(){
-        console.log("drawing tail");
+    drawTail(ctx){
+        // console.log('tail lenght: ' + this.tailArray.length);
+        // console.log("tailarray" + this.tailArray);
         for (let i = 0; i < this.tailArray.length; i++) {
-            const element = this.tailArray[i];
-
-            let element_image = new Image ();
-            element_image.src = this.tailArray[i].path;
-            ctx.drawImage(element_image, this.tailArray[i].xPos, this.tailArray[i].yPos,30,30);
+            let element = this.tailArray[i];
+            ctx.fillStyle = 'red';
+            ctx.fillRect(element.xPos,element.yPos,20,20);
+            console.log('draw image ' + this.tailArray[i].path)
+            // let element_image = new Image ();
+            // element_image.src = this.tailArray[i].path;
+            // ctx.drawImage(element_image, this.tailArray[i].xPos, this.tailArray[i].yPos,30,30);
             
         }
     }
