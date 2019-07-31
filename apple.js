@@ -14,8 +14,8 @@ class Apple{
         // debugger;
         ctx.drawImage(apple_image, this.xPos, this.yPos,this.width,this.height);
     }
-    update(player, alphabet,snake,ctx){
-        let distance  = Math.hypot(player.xPos-this.xPos, player.yPos-this.yPos);
+    update(snake, alphabet, ctx){
+        let distance  = Math.hypot(snake.snakebody[0].x - this.xPos, snake.snakebody[0].y - this.yPos);
 
         // Update with collision
         if (distance < grid){
@@ -24,9 +24,9 @@ class Apple{
 
         // trigger a snake child
             // console.log(' Colission thick');
-            player.children += 1;
+            snake.children += 1;
             // console.log('children : ' + player.children);
-            player.grow(ctx,alphabet)
+            snake.grow(ctx,alphabet)
 
 
 
