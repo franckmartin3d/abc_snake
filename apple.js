@@ -35,7 +35,7 @@ class Apple{
 
         // update alphabetr class
             alphabet.Collectedletters +=1;
-            console.log('collected letters' + alphabet.Collectedletters);
+            // console.log('collected letters' + alphabet.Collectedletters);
         }
         
     }

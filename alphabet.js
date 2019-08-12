@@ -1,10 +1,10 @@
 class Alphabet {
     constructor(){
 
-        this.wordlist = ['Abc', 'Mila', 'Apple', "House"];
+        this.wordlist = ['Abc', 'Xyz'];
         this.activeWord = '';
         this.iconPathArray = [];
-        this.activeIcon = '';
+        this.activeIcon = '../char/S_char.png';
         this.completedWord = 0;
         this.Collectedletters = 0;
         this.alphastart = false;
@@ -24,7 +24,11 @@ class Alphabet {
 
         // Split active word into array
         // debugger;
-        this.activeWord = this.activeWord.toUpperCase();
+        if(this.activeWord == undefined){
+            this.isWinning();
+        }
+        else{
+            this.activeWord = this.activeWord.toUpperCase();
         let activeWord_array = this.activeWord.split('');
 
         // list for icon path 
@@ -150,16 +154,16 @@ class Alphabet {
             });
 
         });
+        }
+        
     }
     setActiveIcon(){
         //set the id of the iconpath
-        // debugger;
-        
         this.activeIcon = this.iconPathArray[this.Collectedletters];
     }
     update(){
         //run all required function in gameloop
-        // console.log(this.alphastart);
+     // console.log(this.alphastart);
         if (this.alphastart == false){
             this.setActiveWord();
             this.activeWordChange += 1;
@@ -168,21 +172,22 @@ class Alphabet {
             this.setActiveIcon();
             this.alphastart = true;
           }
+
+
+        //    if the word is completed
         else if(this.Collectedletters >= this.iconPathArray.length ){
+
+            //  reset iconpatharray
+            this.iconPathArray = [];
+
             this.completedWord +=1;
             this.alphastart = false;
             this.Collectedletters = 0; 
-
             this.setActiveWord();
-            this.activeWordChange += 1;
-            
-            console.log(this.activeWordChange);
-            console.log('active word update' + this.activeWord);
-
             this.setIconPathArray();
             this.setActiveIcon();
-
-
+            this.activeWordChange += 1;
+            
         }
         else{
             // this.setIconPathArray();
@@ -210,8 +215,9 @@ class Alphabet {
         ctxNextNumber.fillText(this.Collectedletters, canvasNextNumber.width/2, canvasNextNumber.height/2);
 
     }
+    
     drawWordList(){
- ;
+ 
         var fontSize = 20;
 
         ctxWordList.font = fontSize + "px Arial";
@@ -229,9 +235,26 @@ class Alphabet {
         }
 
     }
+
     drawNextLetter(){
         ctxNextLetter.clearRect(0, 0, canvas.width, canvas.height);
         ctxNextLetter.font = "12px Georgia";
         ctxNextLetter.fillText(this.iconPathArray[this.Collectedletters], 0, canvasNextLetter.height/2);
+    }
+
+    isWinning(){
+        // check if the winning condition are here
+        console.log('is winning method inside alphabet:');
+        
+        if (this.completedWord > this.wordlist.length){
+            console.log('is winning true!')
+            winning();
+           return true;
+        }
+        else{
+            console.log('is winning false!')
+            return false;
+        }
+
     }
 }
