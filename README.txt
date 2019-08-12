@@ -25,4 +25,4 @@ BUGS
 -letter movement is weird
 -fix grid
 -fix left barrier // done
-
+-fix multiple word //done

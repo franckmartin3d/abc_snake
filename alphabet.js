@@ -167,7 +167,8 @@ class Alphabet {
         if (this.alphastart == false){
             this.setActiveWord();
             this.activeWordChange += 1;
-            // w
+            // 
+            
             this.setIconPathArray();
             this.setActiveIcon();
             this.alphastart = true;
@@ -179,10 +180,10 @@ class Alphabet {
 
             //  reset iconpatharray
             this.iconPathArray = [];
-
+            
             this.completedWord +=1;
             this.alphastart = false;
-            this.Collectedletters = 0; 
+            
             this.setActiveWord();
             this.setIconPathArray();
             this.setActiveIcon();
@@ -244,15 +245,15 @@ class Alphabet {
 
     isWinning(){
         // check if the winning condition are here
-        console.log('is winning method inside alphabet:');
         
+
         if (this.completedWord > this.wordlist.length){
-            console.log('is winning true!')
+            
             winning();
            return true;
         }
         else{
-            console.log('is winning false!')
+            
             return false;
         }
 
