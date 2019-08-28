@@ -36,6 +36,9 @@ function gameRun() {
        if  (alphabet.isWinning(ctx)){
             winning();
        }
+       else if (snake.collision()){
+           lost();
+       }
        else{
                 //Update apples
                 apple.update(snake, alphabet, ctx);
@@ -46,6 +49,7 @@ function gameRun() {
                 //update player
               
                 snake.move();
+                snake.collision();
         
                 //render()
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -70,6 +74,17 @@ function winning(){
         ctx.fillText("You Are A Winner!", (canvas.width/2) - 200, canvas.height/2);
     // }
 }
+
+
+function lost(){
+    // function when game is won.
+       
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.font = "40px Georgia";
+        ctx.fillText("You Lost", (canvas.width/2) - 200, canvas.height/2);
+    // }
+}
+
 function start(){
        // Start game when pressing space
 

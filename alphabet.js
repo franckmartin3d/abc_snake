@@ -1,7 +1,7 @@
 class Alphabet {
     constructor(){
 
-        this.wordlist = ['Abc', 'Xyz'];
+        this.wordlist = ['Mila', 'Natali'];
         this.activeWord = '';
         this.iconPathArray = [];
         this.activeIcon = '../char/S_char.png';

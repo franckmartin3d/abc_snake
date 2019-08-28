@@ -1,7 +1,8 @@
 class Apple{
     constructor( width, height){
-        this.xPos = Math.floor(Math.random()* canvas.width);
-        this.yPos = Math.floor(Math.random()* canvas.height);
+
+        this.xPos = Math.floor(Math.random()* canvas.width - grid);
+        this.yPos = Math.floor(Math.random()* canvas.height - grid);
         this.width = grid;
         this.height = grid;
         this.appleCounter = 0;

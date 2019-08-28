@@ -54,6 +54,7 @@ class Snake {
     draw(ctx, alphabet) {
         // image
         // need to change letter so get pass letter from letter choosers
+
         for (let i = 0; i < this.snakebody.length; i++) {
             const element = this.snakebody[i];
             let a_image = new Image();
@@ -115,15 +116,41 @@ class Snake {
         // create a new object (copy head)
         const newSnakePart = Object.assign({}, this.snakebody[0]);
 
-        // not sure why we do this
+        // add newparameter to snake head
         this.snakebody[0].x += (this.xVelo * this.width);
         this.snakebody[0].y += (this.yVelo * this.height);
         this.snakebody[0].path = alphabet.activeIcon;
 
-        this.snakebody.push(newSnakePart);
+        
+        this.snakebody.unshift(newSnakePart);
+
+        // swap snakebody[0] and snakebody[1]
+        // console.log('swapping [0] to [1]')
+        // if (this.snakebody.length > 1){
+            
+        //     [this.snakebody[this.snakebody.length - 1], this.snakebody[1]] = [this.snakebody[1], this.snakebody[this.snakebody.length - 1]];
+        //     console.log('swap happened');
+        }
+    
+    collision(){
+        // if the head colide with any part of body goes to game over
+
+        for (let i = 1; i < this.snakebody.length; i++) {
+            const element = this.snakebody[i];
+
+            if (this.snakebody[0].x == this.snakebody[i].x && this.snakebody[0].y == this.snakebody[i].y){
+                console.log("collision detected");
+                return true;
+            }
+            
+        }
+
+    }    
 
 
-    }
+
+
+    
 
 
 }
