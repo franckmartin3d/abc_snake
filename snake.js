@@ -124,33 +124,29 @@ class Snake {
         
         this.snakebody.unshift(newSnakePart);
 
-        // swap snakebody[0] and snakebody[1]
-        // console.log('swapping [0] to [1]')
-        // if (this.snakebody.length > 1){
-            
-        //     [this.snakebody[this.snakebody.length - 1], this.snakebody[1]] = [this.snakebody[1], this.snakebody[this.snakebody.length - 1]];
-        //     console.log('swap happened');
+       
         }
     
     collision(){
         // if the head colide with any part of body goes to game over
 
-        for (let i = 1; i < this.snakebody.length; i++) {
-            const element = this.snakebody[i];
 
-            if (this.snakebody[0].x == this.snakebody[i].x && this.snakebody[0].y == this.snakebody[i].y){
-                console.log("collision detected");
-                return true;
+        if (this.snakebody.lenght > 3){
+            let headX = this.snakebody[1].x;
+            let HeadY = this.snakebody[1].y;
+
+            for (let i = 3; i < this.snakebody.length; i++) {
+                const part = this.snakebody[i];
+                if (part.x == x && part.y == y){
+                    console.log("collision detected");
+                    return true;
+                }
+
             }
-            
         }
+       
+        return false;
 
     }    
-
-
-
-
-    
-
 
 }

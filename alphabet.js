@@ -1,7 +1,7 @@
 class Alphabet {
     constructor(){
 
-        this.wordlist = ['Mila', 'Natali'];
+        this.wordlist = ['WebDev', 'Javascript','Focus', 'Coding'];
         this.activeWord = '';
         this.iconPathArray = [];
         this.activeIcon = '../char/S_char.png';
@@ -237,10 +237,14 @@ class Alphabet {
 
     }
 
-    drawNextLetter(){
-        ctxNextLetter.clearRect(0, 0, canvas.width, canvas.height);
-        ctxNextLetter.font = "12px Georgia";
-        ctxNextLetter.fillText(this.iconPathArray[this.Collectedletters], 0, canvasNextLetter.height/2);
+    drawNextLetter(snake){
+        // ctxNextLetter.clearRect(0, 0, canvas.width, canvas.height);
+        // ctxNextLetter.font = "12px Georgia";
+        // ctxNextLetter.fillText(this.iconPathArray[this.Collectedletters], 0, canvasNextLetter.height/2);
+
+        let a_image = new Image();
+        a_image.src = this.iconPathArray[this.Collectedletters];
+        ctxNextLetter.drawImage(a_image, 10, 10, 40, 40);
     }
 
     isWinning(){

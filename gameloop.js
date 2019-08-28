@@ -58,7 +58,7 @@ function gameRun() {
                 alphabet.drawActiveWord(ctxActiveWord);
                 alphabet.drawNumberLetter(ctxNextNumber);
                 alphabet.drawWordList(ctxWordList);
-                alphabet.drawNextLetter(ctxNextLetter);
+                alphabet.drawNextLetter(snake, ctxNextLetter);
 
        }
 
@@ -77,7 +77,7 @@ function winning(){
 
 
 function lost(){
-    // function when game is won.
+    // function when game is lost.
        
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.font = "40px Georgia";
