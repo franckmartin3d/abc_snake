@@ -4,7 +4,7 @@ class Alphabet {
         this.wordlist = ['WebDev', 'Javascript','Focus', 'Coding'];
         this.activeWord = '';
         this.iconPathArray = [];
-        this.activeIcon = '../char/S_char.png';
+        this.activeIcon = 'char/HEAD_char.png';
         this.completedWord = 0;
         this.Collectedletters = 0;
         this.alphastart = false;
@@ -34,107 +34,107 @@ class Alphabet {
         // list for icon path 
         let list = [{
                 char: 'A',
-                path: '../char/A_char.png'
+                path: 'char/A_char.png'
             },
-
+            
             {
                 char: 'B',
-                path: '../char/B_char.png'
+                path: 'char/B_char.png'
             },
             {
                 char: 'C',
-                path: '../char/C_char.png'
+                path: 'char/C_char.png'
             },
             {
                 char: 'D',
-                path: '../char/D_char.png'
+                path: 'char/D_char.png'
             },
             {
                 char: 'E',
-                path: '../char/E_char.png'
+                path: 'char/E_char.png'
             },
             {
                 char: 'F',
-                path: '../char/F_char.png'
+                path: 'char/F_char.png'
             },
             {
                 char: 'G',
-                path: '../char/G_char.png'
+                path: 'char/G_char.png'
             },
             {
                 char: 'H',
-                path: '../char/H_char.png'
+                path: 'char/H_char.png'
             },
             {
                 char: 'I',
-                path: '../char/I_char.png'
+                path: 'char/I_char.png'
             },
             {
                 char: 'J',
-                path: '../char/J_char.png'
+                path: 'char/J_char.png'
             },
             {
                 char: 'K',
-                path: '../char/K_char.png'
+                path: 'char/K_char.png'
             },
             {
                 char: 'L',
-                path: '../char/L_char.png'
+                path: 'char/L_char.png'
             },
             {
                 char: 'M',
-                path: '../char/M_char.png'
+                path: 'char/M_char.png'
             },
             {
                 char: 'N',
-                path: '../char/N_char.png'
+                path: 'char/N_char.png'
             },
             {
                 char: 'O',
-                path: '../char/O_char.png'
+                path: 'char/O_char.png'
             },
             {
                 char: 'P',
-                path: '../char/P_char.png'
+                path: 'char/P_char.png'
             },
             {
                 char: 'Q',
-                path: '../char/Q_char.png'
+                path: 'char/Q_char.png'
             },
             {
                 char: 'R',
-                path: '../char/R_char.png'
+                path: 'char/R_char.png'
             },
             {
                 char: 'S',
-                path: '../char/S_char.png'
+                path: 'char/s_char.png'
             },
             {
                 char: 'T',
-                path: '../char/T_char.png'
+                path: 'char/T_char.png'
             },
             {
                 char: 'U',
-                path: '../char/U_char.png'
+                path: 'char/U_char.png'
             },
             {
                 char: 'V',
-                path: '../char/V_char.png'
+                path: 'char/V_char.png'
             },
             {
                 char: 'W',
-                path: '../char/W_char.png'
+                path: 'char/W_char.png'
             },
             {
                 char: 'X',
-                path: '../char/X_char.png'
+                path: 'char/X_char.png'
             },
             {
                 char: 'Y',
-                path: '../char/Y_char.png'
+                path: 'char/Y_char.png'
             }, {
                 char: 'Z',
-                path: '../char/Z_char.png'
+                path: 'char/Z_char.png'
             },
 
         ];
@@ -203,8 +203,8 @@ class Alphabet {
     drawActiveWord(){
         // draw activeword on canvas
         ctxActiveWord.clearRect(0, 0, canvas.width, canvas.height);
-        ctxActiveWord.font = "32px Georgia";
-        ctxActiveWord.fillText(this.activeWord, canvasActiveWord.width/2, canvasActiveWord.height/2);
+        ctxActiveWord.font = "22px Georgia";
+        ctxActiveWord.fillText(this.activeWord, canvasActiveWord.width/5, canvasActiveWord.height/2);
 
     }
 

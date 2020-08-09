@@ -1,7 +1,7 @@
 //Setup canvas
 var canvas = document.getElementById('game-window');
 var ctx = canvas.getContext('2d');
-var fps = 5;
+var fps = 60;
 
 var canvasActiveWord = document.getElementById('currentWord');
 var ctxActiveWord = canvasActiveWord.getContext('2d');
@@ -16,14 +16,11 @@ var canvasNextLetter = document.getElementById('next');
 var ctxNextLetter = canvasNextLetter.getContext('2d');
 
 //setup instance
-let grid = 45; // also size of icons
+let grid = 50; // also size of icons
 
 let apple = new Apple(0, false);
 let alphabet = new Alphabet();
-let snake = new Snake(400, 400, 1, 0, grid, grid, 15, alphabet);
-
-
-
+let snake = new Snake(400, 400, 0.3, 0, grid, grid, 15, alphabet);
 
 // Game state
 
@@ -37,7 +34,7 @@ function gameRun() {
             winning();
        }
        else if (snake.collision()){
-           lost();
+            collisionlost();
        }
        else{
                 //Update apples
@@ -63,7 +60,7 @@ function gameRun() {
        }
 
         requestAnimationFrame(gameRun);
-    }, 400);
+    }, 100);
 }
 
 function winning(){
@@ -76,12 +73,14 @@ function winning(){
 }
 
 
-function lost(){
+function collisionlost(){
     // function when game is lost.
        
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.font = "40px Georgia";
-        ctx.fillText("You Lost", (canvas.width/2) - 200, canvas.height/2);
+        ctx.font = "30px Comic Sans MS";
+        ctx.fillStyle = "red";
+        ctx.textAlign = "center";
+        ctx.fillText("Collision!!!!! You Lost", (canvas.width/2) - 200, canvas.height/2);
     // }
 }
 
@@ -101,7 +100,6 @@ function start(){
 
         }
     });
-
        ctx.clearRect(0, 0, canvas.width, canvas.height);
        ctx.font = "40px Georgia";
        ctx.fillText("Press space", (canvas.width/2) - 200, canvas.height/2);
