@@ -1,7 +1,8 @@
 //Setup canvas
 var canvas = document.getElementById('game-window');
 var ctx = canvas.getContext('2d');
-var fps = 60;
+var fps = 5;
+var speed = 200;
 
 var canvasActiveWord = document.getElementById('currentWord');
 var ctxActiveWord = canvasActiveWord.getContext('2d');
@@ -20,7 +21,8 @@ let grid = 50; // also size of icons
 
 let apple = new Apple(0, false);
 let alphabet = new Alphabet();
-let snake = new Snake(400, 400, 0.3, 0, grid, grid, 15, alphabet);
+//  constructor(xPos, yPos, xVelo, yVelo, width, height, speed, alphabet)
+let snake = new Snake(400, 400, 1, 0, grid, grid, 1, alphabet);
 
 // Game state
 
@@ -60,7 +62,7 @@ function gameRun() {
        }
 
         requestAnimationFrame(gameRun);
-    }, 100);
+    }, speed);
 }
 
 function winning(){

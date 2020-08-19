@@ -68,7 +68,7 @@ class Snake {
     //draw a children
   }
   direction(x, y, movementplane) {
-    //helper methos that set the direction of the
+    //helper methos that set the direction of the snake
     this.xVelo = x;
     this.yVelo = y;
     this.movementplane = movementplane;
@@ -83,8 +83,8 @@ class Snake {
       snakeCopy.push(part);
     }
     //move snake head
-    this.snakebody[0].x += this.xVelo * this.width;
-    this.snakebody[0].y += this.yVelo * this.height;
+    this.snakebody[0].x += (this.xVelo * this.width) * this.speed;
+    this.snakebody[0].y += (this.yVelo * this.height) * this.speed;
 
     //move snake body
     // to do refactor this
